@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>디자인 관점으로 콘텐츠를 기획하고 비즈니스와 연결합니다</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+      color: #111;
+      font-family: "Noto Sans KR", sans-serif;
+      overflow-x: hidden;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      text-align: center;
+      padding: 88px 20px 0;
+      height: 490px;
+    }
+
+    .hero h1 {
+      font-family: "Nanum Myeongjo", "Noto Serif KR", serif;
+      font-weight: 400;
+      font-size: 56px;
+      line-height: 1.5;
+      letter-spacing: -0.5px;
+      color: #111;
+    }
+
+    .cta {
+      margin-top: 48px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      height: 62px;
+      padding: 0 34px;
+      border: none;
+      border-radius: 999px;
+      background: #ffe100;
+      color: #111;
+      font-size: 18px;
+      font-weight: 500;
+      font-family: inherit;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .cta:hover {
+      background: #ffd600;
+      transform: translateY(-2px);
+    }
+
+    .cta svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* ---------- Marquee ---------- */
+    .marquee {
+      position: relative;
+      width: 100%;
+      height: 410px;
+      overflow: hidden;
+    }
+
+    .track {
+      display: flex;
+      width: max-content;
+      height: 100%;
+      animation: scroll 40s linear infinite;
+    }
+
+    .marquee:hover .track {
+      animation-play-state: paused;
+    }
+
+    .card {
+      flex: 0 0 auto;
+      width: 285px;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      background: #ddd;
+    }
+
+    .card + .card {
+      margin-left: 0;
+    }
+
+    @keyframes scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ---------- Placeholder art (approximates the screenshot covers) ---------- */
+    .art-1 {
+      background: linear-gradient(180deg, #f2efe8 0%, #f2efe8 38%, #7e8c93 38%, #bfc9cc 70%, #6d7568 100%);
+    }
+    .art-1::before {
+      content: "";
+      position: absolute;
+      left: 20%; top: 45%;
+      width: 60%; height: 36%;
+      background: #a64032;
+      clip-path: polygon(0 30%, 50% 0, 100% 30%, 100% 100%, 0 100%);
+    }
+    .art-1 .cover-title {
+      position: absolute;
+      top: 14px; left: 10px; right: 10px;
+      font-family: "Noto Sans KR", sans-serif;
+      font-size: 11px;
+      color: #111;
+    }
+    .art-1 .cover-title strong {
+      display: block;
+      font-size: 42px;
+      font-weight: 700;
+      letter-spacing: -2px;
+      color: #111;
+    }
+
+    .art-2 {
+      background: #ffffff;
+    }
+    .art-2 .blob {
+      position: absolute;
+      left: 10px; right: 10px; top: 80px; bottom: 80px;
+      background:
+        repeating-linear-gradient(45deg, #ff2d8a 0 14px, transparent 14px 28px),
+        repeating-linear-gradient(-45deg, #2d6bff 0 10px, transparent 10px 26px),
+        #6cd62f;
+      border-radius: 40px 10px 60px 14px;
+      opacity: 0.9;
+    }
+    .art-2 .fest {
+      position: absolute;
+      top: 12px; left: 10px; right: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #111;
+      line-height: 1.3;
+    }
+    .art-2 .fest span {
+      display: block;
+      font-size: 18px;
+      letter-spacing: -0.5px;
+    }
+
+    .art-3 {
+      background: linear-gradient(180deg, #eae7df 0%, #e6e2d8 45%, #3c8a5a 45%, #2f7a4a 62%, #efeee9 62%);
+    }
+    .art-3 .logo {
+      position: absolute;
+      left: 50%; top: 52%;
+      transform: translate(-50%, -50%);
+      font-family: "Noto Sans KR", sans-serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -1px;
+    }
+
+    .art-4 {
+      background: radial-gradient(ellipse at 50% 40%, #7d5a3e 0%, #4a3322 70%, #2a1d14 100%);
+    }
+    .art-4 .egg {
+      position: absolute;
+      left: 50%; top: 36%;
+      width: 130px; height: 170px;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 35%, #ffe9d0, #6fb8c8 55%, #2b5870 100%);
+    }
+    .art-4 .tag {
+      position: absolute;
+      top: 14px; right: 14px;
+      width: 90px; height: 90px;
+      background: #9fd0ef;
+      color: #111;
+      font-size: 24px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: 1.1;
+    }
+
+    .art-5 {
+      background: #f7f7f7;
+    }
+    .art-5 .shape-a {
+      position: absolute;
+      left: 22%; top: 14%;
+      width: 56%; height: 44%;
+      background: #b02ea0;
+      clip-path: polygon(0 0, 65% 0, 100% 50%, 65% 100%, 0 100%, 20% 50%);
+    }
+    .art-5 .shape-b {
+      position: absolute;
+      right: 14%; top: 10%;
+      width: 28%; height: 52%;
+      background: #e8382f;
+      clip-path: polygon(0 0, 100% 40%, 100% 60%, 0 100%);
+    }
+    .art-5 .shape-c {
+      position: absolute;
+      right: 6%; bottom: 8%;
+      width: 40%; height: 40%;
+      background: #ff8a1c;
+      clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+    }
+    .art-5 .wave {
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(90deg, transparent 0 40px, #3ea6e6 40px 48px, transparent 48px 96px);
+      opacity: 0.55;
+    }
+
+    .art-6 {
+      background: #ffffff;
+    }
+    .art-6 .title {
+      position: absolute;
+      top: 16px; left: 10px; right: 10px;
+      font-family: "Playfair Display", "Nanum Myeongjo", serif;
+      font-size: 36px;
+      letter-spacing: 2px;
+      color: #a1243f;
+      text-align: center;
+    }
+    .art-6 .person {
+      position: absolute;
+      left: 22%; right: 22%; top: 22%; bottom: 14%;
+      background: radial-gradient(circle at 50% 30%, #f0c8b4 0 18%, transparent 19%),
+                  linear-gradient(180deg, transparent 0 40%, #111 40% 62%, #f4f4f4 62%);
+    }
+
+    .art-7 {
+      background: linear-gradient(180deg, #1c3d5a 0%, #2b6e8f 50%, #f4f7f8 100%);
+    }
+
+    /* ---------- Bottom progress bar + floating edit button ---------- */
+    .progress {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 6px;
+      background: #444;
+    }
+    .progress::after {
+      content: "";
+      position: absolute;
+      left: 10%; top: 0;
+      width: 80%; height: 100%;
+      background: #888;
+    }
+
+    .fab {
+      position: fixed;
+      right: 24px;
+      bottom: 36px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.25);
+      background: rgba(30, 30, 30, 0.85);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    }
+    .fab svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 720px) {
+      .hero { height: auto; padding: 60px 20px 48px; }
+      .hero h1 { font-size: 34px; line-height: 1.5; }
+      .cta { margin-top: 36px; height: 54px; font-size: 16px; }
+      .marquee { height: 300px; }
+      .card { width: 200px; }
+      .art-6 .title { font-size: 26px; }
+      .art-4 .tag { width: 64px; height: 64px; font-size: 17px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <section class="hero">
+      <h1>디자인 관점으로 콘텐츠를<br />기획하고 비즈니스와 연결합니다</h1>
+
+      <button class="cta" type="button">
+        프로젝트 보기
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="4" y1="12" x2="20" y2="12"></line>
+          <polyline points="14 6 20 12 14 18"></polyline>
+        </svg>
+      </button>
+    </section>
+
+    <section class="marquee" aria-label="프로젝트 미리보기">
+      <div class="track" id="track">
+        <!-- 카드는 JS로 복제되어 무한 루프를 구성합니다 -->
+      </div>
+      <div class="progress"></div>
+    </section>
+  </div>
+
+  <button class="fab" type="button" aria-label="편집">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 20h9"></path>
+      <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"></path>
+    </svg>
+  </button>
+
+  <script>
+    // 카드 데이터 (스크린샷의 커버 구성을 재현)
+    const cards = [
+      `<div class="card art-1"><div class="cover-title">50th Anniversary · Vol.577<strong>Design</strong>New Platform for Creative Leaders</div></div>`,
+      `<div class="card art-2"><div class="blob"></div><div class="fest">SEOUL DESIGN FESTIVAL<span>2026.11.26.—29. COEX HALL A</span></div></div>`,
+      `<div class="card art-3"><div class="logo">hey POP</div></div>`,
+      `<div class="card art-4"><div class="tag">행복이 가득한 집</div><div class="egg"></div></div>`,
+      `<div class="card art-5"><div class="wave"></div><div class="shape-a"></div><div class="shape-b"></div><div class="shape-c"></div></div>`,
+      `<div class="card art-6"><div class="title">LUXURY</div><div class="person"></div></div>`,
+      `<div class="card art-7"></div>`
+    ];
+
+    const track = document.getElementById("track");
+    // 끊김 없는 루프를 위해 목록을 두 번 채웁니다 (애니메이션은 -50%까지 이동)
+    track.innerHTML = cards.concat(cards).join("");
+  </script>
+</body>
+</html>
